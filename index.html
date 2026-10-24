@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GNS ESPORTS ARENA | Free Fire Max Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff5500;
+            --bg-dark: #0a0c10;
+            --bg-card: #131722;
+            --text-main: #ffffff;
+            --text-sub: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-dark); color: var(--text-main); min-height: 100vh; padding-bottom: 40px; }
+        header { background: linear-gradient(180deg, rgba(19, 23, 34, 0.95) 0%, rgba(10, 12, 16, 0.95) 100%); border-bottom: 2px solid var(--primary); padding: 15px 20px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        .logo-area h1 { font-family: 'Rajdhani', sans-serif; font-size: 24px; letter-spacing: 2px; color: var(--primary); text-transform: uppercase; }
+        .logo-area p { font-size: 11px; color: var(--secondary); letter-spacing: 1px; font-weight: 700; margin-top: 2px; }
+        .nav-tabs { display: flex; justify-content: space-around; background: #161b26; padding: 10px; border-bottom: 1px solid #222d3d; overflow-x: auto; }
+        .tab-btn { background: none; border: none; color: var(--text-sub); font-size: 13px; font-weight: 600; padding: 8px 12px; cursor: pointer; white-space: nowrap; border-radius: 4px; transition: 0.3s; }
+        .tab-btn.active { background: var(--primary); color: var(--bg-dark); box-shadow: 0 0 10px var(--primary); }
+        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        .section { display: none; }
+        .section.active { display: block; }
+        .card { background: var(--bg-card); border: 1px solid #222d3d; border-radius: 10px; padding: 15px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
+        .card h3 { font-family: 'Rajdhani', sans-serif; font-size: 18px; color: var(--primary); margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th, td { padding: 10px; text-align: left; border-bottom: 1px solid #222d3d; }
+        th { color: var(--text-sub); font-weight: 600; font-size: 11px; text-transform: uppercase; }
+        .rank-1 { color: #ffd700; font-weight: 700; }
+        .rank-2 { color: #c0c0c0; font-weight: 700; }
+        .rank-3 { color: #cd7f32; font-weight: 700; }
+        .room-box { background: #1a2130; border-left: 4px solid var(--secondary); padding: 12px; border-radius: 6px; margin-top: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .room-details p { font-size: 13px; margin-bottom: 3px; }
+        .copy-btn { background: var(--secondary); color: white; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; cursor: pointer; }
+        .loot-container { text-align: center; padding: 20px; }
+        .loot-box { font-size: 50px; background: #1c2538; border: 2px dashed var(--primary); border-radius: 15px; padding: 20px; display: inline-block; cursor: pointer; margin: 15px 0; }
+        #loot-result { font-size: 15px; color: var(--primary); font-weight: 600; margin-top: 10px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <h1>🔥 TEAM GENESIS</h1>
+            <p>FREE FIRE MAX ESPORTS ARENA</p>
+        </div>
+    </header>
+
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('standings', this)">Standings</button>
+        <button class="tab-btn" onclick="switchTab('schedule', this)">Scrims</button>
+        <button class="tab-btn" onclick="switchTab('roster', this)">Roster</button>
+        <button class="tab-btn" onclick="switchTab('vault', this)">Room ID</button>
+        <button class="tab-btn" onclick="switchTab('loot', this)">Loot Box 🎁</button>
+    </div>
+
+    <div class="container">
+        <!-- Standings Tab -->
+        <div id="standings" class="section active">
+            <div class="card">
+                <h3>Live Points Table <span>Bermuda Series</span></h3>
+                <table>
+                    <thead>
+                        <tr><th>Rank</th><th>Guild Name</th><th>WWCD</th><th>Kills</th><th>Pts</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="rank-1">#1</td><td><strong>TEAM GENESIS</strong></td><td>3</td><td>48</td><td><strong>98</strong></td></tr>
+                        <tr><td class="rank-2">#2</td><td>Team Phoenix</td><td>2</td><td>39</td><td><strong>79</strong></td></tr>
+                        <tr><td class="rank-3">#3</td><td>Red Skull</td><td>1</td><td>31</td><td><strong>56</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Schedule Tab -->
+        <div id="schedule" class="section">
+            <div class="card">
+                <h3>Upcoming Matches</h3>
+                <div class="room-box" style="border-left-color: var(--primary);">
+                    <div class="room-details">
+                        <p><strong>Match #1: Clash Squad War</strong></p>
+                        <p style="color: var(--text-sub); font-size: 11px;">Map: Bermuda | Time: 08:30 PM</p>
+                    </div>
+                    <span style="color: var(--primary); font-size: 12px; font-weight: 700;">REG OPEN</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Roster Tab -->
+        <div id="roster" class="section">
+            <div class="card">
+                <h3>Guild Lineup & Roles</h3>
+                <table>
+                    <thead><tr><th>In-Game Tag</th><th>Role</th><th>KD</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>GNS × YOSH</strong></td><td style="color: var(--primary);">Leader / Rusher</td><td>4.82</td></tr>
+                        <tr><td>GNS × HARSH</td><td>Sniper</td><td>3.95</td></tr>
+                        <tr><td>GNS × PANKAJ</td><td>IGL / Support</td><td>3.40</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Room Vault Tab -->
+        <div id="vault" class="section">
+            <div class="card">
+                <h3>Custom Room Vault</h3>
+                <div class="room-box">
+                    <div class="room-details">
+                        <p><strong>Room ID:</strong> 78945612</p>
+                        <p><strong>Password:</strong> GNS99#</p>
+                    </div>
+                    <button class="copy-btn" onclick="alert('Room Credentials Copied!')">COPY</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loot Box Tab -->
+        <div id="loot" class="section">
+            <div class="card loot-container">
+                <h3>Daily Mystery Drop</h3>
+                <p style="font-size: 12px; color: var(--text-sub);">Tap the loot box to unlock random tournament rewards!</p>
+                <div class="loot-box" onclick="openLootBox()">📦</div>
+                <div id="loot-result">Tap box to open...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabId, btn) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btn.classList.add('active');
+        }
+        function openLootBox() {
+            const rewards = [
+                "🎉 BOOYAH! 100 Diamonds Code: FFMAX-GNS-100D",
+                "🔥 Elite Pass Card Unlocked!",
+                "💎 50 Diamonds Voucher: GNS-VIP-50",
+                "⚡ Custom Room Card Voucher Unlocked!"
+            ];
+            document.getElementById('loot-result').innerText = rewards[Math.floor(Math.random() * rewards.length)];
+        }
+    </script>
+</body>
+</html>
